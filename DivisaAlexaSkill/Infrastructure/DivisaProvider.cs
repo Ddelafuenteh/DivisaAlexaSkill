@@ -20,28 +20,25 @@ namespace DivisaAlexaSkill.Infrastructure
         public async Task<double> GetDivisa(string divisaSource, string divisaTarget)
         {
             DivisaResultModel divisaResponse;
-            string path = $"{divisaSource}/{divisaTarget}/json?key=1496|30_kpDftA9pXzAVMRuqZR0XqH2Dtv~aS";
-            try
-            {
-                HttpClient Client = new HttpClient();
-                Client.BaseAddress = new Uri("https://api.cambio.today/v1/quotes/");
-                Client.DefaultRequestHeaders.Accept.Clear();
-                Client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await Client.GetAsync(path);
-                string divisaResultJSON = await response.Content.ReadAsStringAsync();
-                divisaResponse = JsonConvert.DeserializeObject<DivisaResultModel>(divisaResultJSON);
-            }
-            catch
+            using (var client = new HttpClient())
             {
-                return -1;
-            }
-            return divisaResponse.Divisa.Amount;
-            if (divisaResponse != null && divisaResponse.Status.Equals("OK"))
-                return divisaResponse.Divisa.Value;
+                try
+                {
+                    //client.BaseAddress = new Uri("https://api.cambio.today/v1/quotes");
+                    string path = $"/{divisaSource}/{divisaTarget}/{API_KEY}";
+                    var response = await client.GetAsync("https://api.cambio.today/v1/quotes/BTC/EUR/json?key=1496|30_kpDftA9pXzAVMRuqZR0XqH2Dtv~aS");
+                    response.EnsureSuccessStatusCode();
 
-            return -1;
+                    string divisaResultJSON = await response.Content.ReadAsStringAsync();
+                    divisaResponse = JsonConvert.DeserializeObject<DivisaResultModel>(divisaResultJSON);
+                    return divisaResponse.Divisa.Amount;
+                }
+                catch (HttpRequestException)
+                {
+                    return -1;
+                }
+            }
         }
     }
 }
