@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -11,11 +12,22 @@ namespace DivisaAlexaSkill.Infrastructure
     public class DivisaProvider : IDivisaProvider
     {
         private const string API_KEY = "json?key=1496|30_kpDftA9pXzAVMRuqZR0XqH2Dtv~aS";
-        private const string API_QUOTE = "quotes";
+
+        private const double EurosToPesetas = 166.39;
+        private const double PesetasToEuros = 0.006;
+
         public DivisaProvider()
         {
-
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
         }
+        public double GetEurosPesetas(string divisaSource, string divisaTarget)
+        {
+            if (divisaSource.Equals("EUR") && divisaTarget.Equals("PST"))
+                return EurosToPesetas;
+            else if (divisaSource.Equals("PST") && divisaTarget.Equals("EUR"))
+                return PesetasToEuros;
+            return -1;
+        } 
 
         public async Task<double> GetDivisa(string divisaSource, string divisaTarget)
         {
@@ -25,16 +37,15 @@ namespace DivisaAlexaSkill.Infrastructure
             {
                 try
                 {
-                    //client.BaseAddress = new Uri("https://api.cambio.today/v1/quotes");
-                    string path = $"/{divisaSource}/{divisaTarget}/{API_KEY}";
-                    var response = await client.GetAsync("https://api.cambio.today/v1/quotes/BTC/EUR/json?key=1496|30_kpDftA9pXzAVMRuqZR0XqH2Dtv~aS");
+                    string path = $"http://api.cambio.today/v1/quotes/{divisaSource}/{divisaTarget}/{API_KEY}";
+                    var response = await client.GetAsync(path);
                     response.EnsureSuccessStatusCode();
 
                     string divisaResultJSON = await response.Content.ReadAsStringAsync();
                     divisaResponse = JsonConvert.DeserializeObject<DivisaResultModel>(divisaResultJSON);
-                    return divisaResponse.Divisa.Amount;
+                    return Math.Round(divisaResponse.Result.Amount, 2);
                 }
-                catch (HttpRequestException)
+                catch (Exception)
                 {
                     return -1;
                 }

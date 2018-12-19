@@ -6,12 +6,13 @@ namespace DivisaAlexaSkill.Domain
 {
     public class DivisaResultModel
     {
-        public DivisaDataModel Divisa { get; set; }
+        public Result Result { get; set; }
         public string Status { get; set; }
     }
 
-    public class DivisaDataModel
+    public class Result
     {
+        public DateTime Updated { get; set; }
         public string Source { get; set; }
         public string Target { get; set; }
         public double Value { get; set; }
