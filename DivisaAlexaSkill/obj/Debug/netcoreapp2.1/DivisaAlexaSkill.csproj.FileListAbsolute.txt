@@ -1,0 +1,10 @@
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\bin\Debug\netcoreapp2.1\DivisaAlexaSkill.deps.json
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\bin\Debug\netcoreapp2.1\DivisaAlexaSkill.runtimeconfig.json
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\bin\Debug\netcoreapp2.1\DivisaAlexaSkill.runtimeconfig.dev.json
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\bin\Debug\netcoreapp2.1\DivisaAlexaSkill.dll
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\obj\Debug\netcoreapp2.1\DivisaAlexaSkill.csproj.CoreCompileInputs.cache
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\obj\Debug\netcoreapp2.1\DivisaAlexaSkill.AssemblyInfoInputs.cache
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\obj\Debug\netcoreapp2.1\DivisaAlexaSkill.AssemblyInfo.cs
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\bin\Debug\netcoreapp2.1\DivisaAlexaSkill.pdb
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\obj\Debug\netcoreapp2.1\DivisaAlexaSkill.dll
+D:\Develop\DivisaAlexaSkill\DivisaAlexaSkill\obj\Debug\netcoreapp2.1\DivisaAlexaSkill.pdb
