@@ -2343,7 +2343,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\xiko_\\.nuget\\packages\\": {},
+    "C:\\Users\\admin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -2352,14 +2352,14 @@
       "projectUniqueName": "D:\\Develop\\DivisaAlexaSkill\\DivisaAlexaSkill\\DivisaAlexaSkill.csproj",
       "projectName": "DivisaAlexaSkill",
       "projectPath": "D:\\Develop\\DivisaAlexaSkill\\DivisaAlexaSkill\\DivisaAlexaSkill.csproj",
-      "packagesPath": "C:\\Users\\xiko_\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
       "outputPath": "D:\\Develop\\DivisaAlexaSkill\\DivisaAlexaSkill\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\xiko_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
